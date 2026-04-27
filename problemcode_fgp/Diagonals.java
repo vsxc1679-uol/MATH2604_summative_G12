@@ -1,7 +1,10 @@
 import static java.lang.Math.*;
-
 class Diagonals
 {
+    public static double[] exampleMatrix(){
+        return new double[]{10, 8, 5, -10, 7};
+    }
+    
     static double[] sum(double[] a, double[] b)
     {
         if (a==null || b==null)
@@ -17,6 +20,7 @@ class Diagonals
         
         return result;
     }
+    
     static double[] product(double[] a, double[]b)
     {
         if (a==null || b==null)
