@@ -1,7 +1,9 @@
 #BlueJ class context
 comment0.target=Diagonals
-comment1.params=a\ b
-comment1.target=double[]\ sum(double[],\ double[])
+comment1.params=
+comment1.target=double[]\ exampleMatrix()
 comment2.params=a\ b
-comment2.target=double[]\ product(double[],\ double[])
-numComments=3
+comment2.target=double[]\ sum(double[],\ double[])
+comment3.params=a\ b
+comment3.target=double[]\ product(double[],\ double[])
+numComments=4
