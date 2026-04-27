@@ -25,7 +25,7 @@ static double[][] exampleMatrix(int n)
         //fills lower diagonal (e.g. i=0 -> 2)
         return result;
         }
-
+        
 static double[][] productWithDiagonal(double[] d, double[][] t)
 // d -> diagonal matrix
 // t -> tridiagonal matrix
@@ -59,6 +59,23 @@ static double[][] productWithDiagonal(double[] d, double[][] t)
         //diagonal matrix essentially acts as a row scaler
         return result;
     } 
-    }
     
+public static boolean isValidTridiagonal (double[][] a) {
+    if (a == null) {
+        return false;
+    }
+    if (a.length != 3) {
+        return false;
+    }
+    if (a[0] == null || a[1] == null || a[2] == null) {
+    return false;
+    }
+    if (a[1].length < 1 || a[2].length != a[1].length || a[0].length != a[1].length) {
+        return false;
+    }
+    else {
+        return true;
+    }
+    }
+}
 
