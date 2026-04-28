@@ -42,4 +42,18 @@ class Diagonals
         //ith entry with b's ith entry.
         return result;
     }
+    //array is said to be invertible thus no need for checking 0's
+    static double[] inverse(double[] a) {
+        if (a==null) {
+            return null;
+        }
+        if (a.length==0) {
+            return null;
+        }
+        for (int i = 0; i < a.length; i++) {
+            a[i] = (1/a[i]);
+        }
+        return a;
+    }
+        
 }
