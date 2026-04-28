@@ -4,4 +4,6 @@ comment1.params=n
 comment1.target=double[][]\ exampleMatrix(int)
 comment2.params=d\ t
 comment2.target=double[][]\ productWithDiagonal(double[],\ double[][])
-numComments=3
+comment3.params=a
+comment3.target=boolean\ isValidTridiagonal(double[][])
+numComments=4
