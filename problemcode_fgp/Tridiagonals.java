@@ -93,7 +93,6 @@ public static double[] linearSolve (double[][] t, double[] v) {
     double[] rhs = v.clone();
     for (int i = 1; i < n; i++) {
         double factor = c[i - 1] / b[i - 1];
-        c[i - 1] = c[i - 1] - factor * b[i-1];
         b[i] = b[i] - factor * a[i-1];
         rhs[i] = rhs[i] - factor * rhs[i-1];
 
@@ -105,5 +104,25 @@ public static double[] linearSolve (double[][] t, double[] v) {
     }
     return x;
     }
+
+public static double[][] sum (double[][] a, double[][] b) {
+    if (a == null || b == null) {
+        return null;
+    }
+    if (!isValidTridiagonal(a) || !isValidTridiagonal(b)) {
+        return null;
+    }
+    if (a[0].length != b[0].length) {
+        return null;
+    }
+    int arrayLength = a[0].length;
+    double [][] result = new double[3][(a[0].length)];
+    for (int i=0; i<(arrayLength); i++) {
+        result[0][i] = a[0][i] + b[0][i];
+        result[1][i] = a[1][i] + b[1][i];
+        result[2][i] = a[2][i] + b[2][i];
+    }
+    return result;
+}
 }
 
