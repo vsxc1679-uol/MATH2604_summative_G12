@@ -57,7 +57,12 @@ static double[][] productWithDiagonal(double[] d, double[][] t)
         //diagonal matrix essentially acts as a row scaler
         return result;
     } 
-    
+/**
+ * function that checks if input is Tridiagonal matrix.
+ *
+ * @param a input matrix
+ * @return Returns boolean true if input is Tridiagonal matrix, or false if not.
+ */    
 public static boolean isValidTridiagonal (double[][] a) {
     if (a == null) {
         return false; // checks if input exists
@@ -75,7 +80,14 @@ public static boolean isValidTridiagonal (double[][] a) {
         return true;
     }
     }
-
+/**
+ * function that uses the Thomas Equation to solve system of linear equations Tx = v 
+ * given a tridiagonal matrix T and and vector v.
+ *
+ * @param t input tridiagonal matrix
+ * @param v input vector
+ * @return Returns vector x that solves the system Tx = v.
+ */    
 public static double[] linearSolve (double[][] t, double[] v) {
     if (isValidTridiagonal(t) == false) {
         return null;
