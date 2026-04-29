@@ -75,5 +75,35 @@ public static boolean isValidTridiagonal (double[][] a) {
         return true;
     }
     }
+
+public static double[] linearSolve (double[][] t, double[] v) {
+    if (isValidTridiagonal(t) == false) {
+        return null;
+    }
+    if (v == null) {
+        return null;
+    }
+    if (v.length != t[1].length) {
+        return null;
+    }
+    int n = t[1].length;
+    double[] a = t[0].clone();
+    double[] b = t[1].clone();
+    double[] c = t[2].clone();
+    double[] rhs = v.clone();
+    for (int i = 1; i < n; i++) {
+        double factor = c[i - 1] / b[i - 1];
+        c[i - 1] = c[i - 1] - factor * b[i-1];
+        b[i] = b[i] - factor * a[i-1];
+        rhs[i] = rhs[i] - factor * rhs[i-1];
+
+    }
+    double[] x = new double[n];
+    x[n-1] = rhs[n-1] / b[n-1];
+    for (int i = n-2; i >= 0; i--) {
+        x[i] = (rhs[i] - a[i] * x[i+1]) / b[i];
+    }
+    return x;
+    }
 }
 
