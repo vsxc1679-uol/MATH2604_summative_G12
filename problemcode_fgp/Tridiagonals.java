@@ -75,5 +75,24 @@ public static boolean isValidTridiagonal (double[][] a) {
         return true;
     }
     }
+public static double[][] sum (double[][] a, double[][] b) {
+    if (a == null || b == null) {
+        return null;
+    }
+    if (!isValidTridiagonal(a) || !isValidTridiagonal(b)) {
+        return null;
+    }
+    if (a[0].length != b[0].length) {
+        return null;
+    }
+    int arrayLength = new a[0].length;
+    double [][] result = new double[3][(a[0].length)];
+    for (int i=0; i<(arrayLength); i++) {
+        result[0][i] = a[0][i] + b[0][i];
+        result[1][i] = a[1][i] + b[1][i];
+        result[2][i] = a[2][i] + b[2][i];
+    }
+    return result;
+}
 }
 
