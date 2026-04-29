@@ -42,16 +42,30 @@ class Diagonals
         //ith entry with b's ith entry.
         return result;
     }
-    //array is said to be invertible thus no need for checking 0's
+    /**
+    * <h3>a function that <b>inverses a diagonal matrix </b></h3>
+    * 
+    * <p>input array should be invertible (no zeros)</p>
+    * <p>in case of null input function will return null, same for 0's in list </p
+    * @param a - an array of double types, your diagonal matrix
+    * @return the inverted diagonal matrix as an array of double types
+    */
     static double[] inverse(double[] a) {
         if (a==null) {
+            //failsafe for null
             return null;
         }
         if (a.length==0) {
-            return null;
+            //checking if list is length 0, if yes return same list
+            return a;
         }
-        for (int i = 0; i < a.length; i++) {
-            a[i] = (1/a[i]);
+        for (int i = 0; i < a.length; i++) {//looping over all elements of a
+            if (a[i] == 0) { 
+                //check 0's to avoid /0 error
+                return null;
+            }
+            a[i] = (1d/a[i]);
+            //replaces values in array with inverted versions 'd' to ensure no integer error
         }
         return a;
     }

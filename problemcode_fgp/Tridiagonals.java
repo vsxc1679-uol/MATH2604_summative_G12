@@ -117,19 +117,31 @@ public static double[] linearSolve (double[][] t, double[] v) {
     return x;
     }
 
-public static double[][] sum (double[][] a, double[][] b) {
+/**
+ * <h3>a function that <b>sums two tridiagonal matrices</b></h3>
+ * <p> inputs must be: equal dimensions; both tridiagonal; neither null</p>
+ * <p> else return null </p>
+ * @param a - 3 x n array of double types
+ * @param b - 3 x n array of double types
+ * @return 3 x n array of double types, <b>sum</b> of both inputs
+ */
+    public static double[][] sum (double[][] a, double[][] b) {
     if (a == null || b == null) {
+        //check either are null
         return null;
     }
     if (!isValidTridiagonal(a) || !isValidTridiagonal(b)) {
+        //uses function isValidTridiagonal to ensure matrices are tridiagonal, thus valid
         return null;
     }
     if (a[0].length != b[0].length) {
+        //ensures lengths are equal, therefore dimensions equal as both tridiagonal
         return null;
     }
-    int arrayLength = a[0].length;
     double [][] result = new double[3][(a[0].length)];
-    for (int i=0; i<(arrayLength); i++) {
+    //creates new 2d doubles array for product tridiagonal matrix
+    for (int i=0; i<(a[0].length); i++) {
+        //loops through matrices summing same position numbers from both
         result[0][i] = a[0][i] + b[0][i];
         result[1][i] = a[1][i] + b[1][i];
         result[2][i] = a[2][i] + b[2][i];
